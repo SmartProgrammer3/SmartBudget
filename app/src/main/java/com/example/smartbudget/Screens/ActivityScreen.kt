@@ -37,13 +37,13 @@ fun ActivityScreen(modifier: Modifier = Modifier) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ExpenseButton(category = "Food\n& supermarket", expense = foodExpense, isMultiLine = true, iconResId = R.drawable.food_icon)
-        ExpenseButton(category = "School", expense = schoolExpense, iconResId = R.drawable.investments_icon)
+        ExpenseButton(category = "School", expense = schoolExpense, iconResId = R.drawable.school_icon)
         ExpenseButton(category = "Investments", expense = investmentExpense, iconResId = R.drawable.investments_icon)
-        ExpenseButton(category = "Clothes\n& accessories", expense = clothesExpenses, isMultiLine = true, iconResId = R.drawable.food_icon)
-        ExpenseButton(category = "Health", expense = healthExpense, iconResId = R.drawable.food_icon)
-        ExpenseButton(category = "Transportation", expense = transportExpense, iconResId = R.drawable.food_icon)
-        ExpenseButton(category = "Entertainment", expense = entertainmentsExpense, iconResId = R.drawable.food_icon)
-        ExpenseButton(category = "Housing", expense = houseExpense, iconResId = R.drawable.food_icon)
+        ExpenseButton(category = "Clothes\n& accessories", expense = clothesExpenses, isMultiLine = true, iconResId = R.drawable.clothes_icon)
+        ExpenseButton(category = "Health", expense = healthExpense, iconResId = R.drawable.health_icon)
+        ExpenseButton(category = "Transportation", expense = transportExpense, iconResId = R.drawable.transport_icon)
+        ExpenseButton(category = "Entertainment", expense = entertainmentsExpense, iconResId = R.drawable.entertainment_icon)
+        ExpenseButton(category = "Housing", expense = houseExpense, iconResId = R.drawable.house_icon)
     }
 }
 
@@ -67,7 +67,7 @@ fun ExpenseButton(category: String, expense: Int, iconResId: Int, isMultiLine: B
             Image(
                 painter = painterResource(id = iconResId),
                 contentDescription = null,
-                modifier = Modifier.size(24.dp).padding(end = 8.dp)
+                modifier = Modifier.size(48.dp).padding(end = 4.dp)
             )
             Text(
                 text = category,
