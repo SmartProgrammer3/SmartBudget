@@ -17,15 +17,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.util.fastForEachIndexed
+import com.example.smartbudget.Screens.ActivityScreen
 import com.example.smartbudget.Screens.HomeScreen
-import com.example.smartbudget.Screens.ProfileScreen
 import com.example.smartbudget.Screens.SettingsScreen
 
 @Composable
 fun MainScreen() {
     val navItemList = listOf(
         NavItem("Home", Icons.Default.Home),
-        NavItem("Profile", Icons.Default.Person),
+        NavItem("Activity", Icons.Default.Person),
         NavItem("Settings", Icons.Default.Settings),
     )
 
@@ -61,7 +61,7 @@ fun MainScreen() {
 fun ContentScreen(modifier: Modifier = Modifier, selectedIndex : Int) {
     when(selectedIndex) {
         0 -> HomeScreen()
-        1 -> ProfileScreen()
+        1 -> ActivityScreen()
         2 -> SettingsScreen()
     }
 }

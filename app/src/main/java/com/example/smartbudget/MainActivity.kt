@@ -32,9 +32,6 @@ class MainActivity : ComponentActivity() {
                 composable("Main"){
                     MainScreen()
                 }
-
-
-
             })
         }
     }
