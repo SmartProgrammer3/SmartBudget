@@ -16,12 +16,19 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.navigation.NavController
 
 
 @Composable
-fun LoginScreen(){
+fun LoginScreen(navController: NavController){
+    val email = remember { mutableStateOf("") }
+    val password = remember { mutableStateOf("") }
+
 
     Column (
         modifier = Modifier.fillMaxSize(),
@@ -39,13 +46,21 @@ fun LoginScreen(){
         Text(text = "Login to your account")
 
         Spacer(modifier = Modifier.height(16.dp))
-        
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text(text = "Email address")})
+
+        OutlinedTextField(
+            value = email.value,
+            onValueChange = { email.value = it },
+            label = { Text(text = "Email address") }
+        )
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        OutlinedTextField(value = "", onValueChange = {}, label = { Text(text = "Password")})
-
+        OutlinedTextField(
+            value = password.value,
+            onValueChange = { password.value = it },
+            label = { Text(text = "Password") },
+            visualTransformation = PasswordVisualTransformation()
+        )
         Spacer(modifier = Modifier.height(16.dp))
         
         Button(onClick = {   }) {
@@ -58,7 +73,9 @@ fun LoginScreen(){
             Text(text = "No account? ")
             Text(
                 text = "Sign up",
-                modifier = Modifier.clickable {  }
+                modifier = Modifier.clickable {
+                    navController.navigate("Register")
+                }
             )
         }
 
@@ -66,6 +83,6 @@ fun LoginScreen(){
 
 
     }
-
-
 }
+
+
