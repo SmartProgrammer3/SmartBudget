@@ -4,35 +4,33 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.smartbudget.ui.theme.SmartBudgetTheme
+import com.example.smartbudget.Screens.AppDatabase
+
 
 class MainActivity : ComponentActivity() {
+    private lateinit var db: AppDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        db = (application as MyApp).database
+
         setContent {
             val navController = rememberNavController()
-            NavHost(navController = navController, startDestination = "login", builder = {
-                composable("login"){
+            NavHost(navController = navController, startDestination = "login") {
+                composable("login") {
                     LoginScreen(navController)
                 }
-                composable("Register"){
+                composable("Register") {
                     RegisterScreen(navController)
                 }
-                composable("Main"){
+                composable("Main") {
                     MainScreen()
                 }
-            })
+            }
         }
     }
 }
