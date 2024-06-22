@@ -67,7 +67,7 @@ fun Screen() {
                         Box(
                             modifier = Modifier
                                 .weight(1f)
-                                .padding(4.dp) // EspaÃ§amento entre as caixas
+                                .padding(4.dp)
                                 .border(1.dp, Color.Gray, RoundedCornerShape(8.dp))
                                 .height(70.dp)
                         ) {

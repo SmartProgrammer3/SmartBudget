@@ -18,8 +18,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.smartbudget.R
 
-
-
 @Composable
 fun ExpensesScreen(modifier: Modifier = Modifier) {
     var foodExpense by remember { mutableStateOf(0) }
@@ -40,7 +38,17 @@ fun ExpensesScreen(modifier: Modifier = Modifier) {
             onDismiss = { showAddDialog = false },
             onConfirm = { amount, title, date ->
                 showAddDialog = false
-                // Aqui você pode incrementar as despesas com base na categoria selecionada
+                val amountInt = amount.toIntOrNull() ?: 0
+                when (selectedCategory) {
+                    "Food" -> foodExpense += amountInt
+                    "School" -> schoolExpense += amountInt
+                    "Investments" -> investmentExpense += amountInt
+                    "Clothes" -> clothesExpenses += amountInt
+                    "Health" -> healthExpense += amountInt
+                    "Transportation" -> transportExpense += amountInt
+                    "Entertainment" -> entertainmentsExpense += amountInt
+                    "Housing" -> houseExpense += amountInt
+                }
             }
         )
     }
